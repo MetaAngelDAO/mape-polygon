@@ -133,7 +133,7 @@ contract MAPE is ERC721A, Ownable {
                 require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
             }
             if(_OGALTwo && tokenAmountsPerAddy[msg.sender] > 1) {
-                require(msg.value > preSalePrice * amount, "RPayment required for additional NFT(s)");
+                require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
             }
             if(_OGALThr && tokenAmountsPerAddy[msg.sender] > 9) {
                 require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
