@@ -39,8 +39,8 @@ library MerkleProof {
 }
 
 contract MAPE is ERC721A, Ownable {
-    uint256 public constant maxSupply = 8000;
-    uint256 private constant maxBatchSize = 8000;
+    uint256 public constant maxSupply = 7888;
+    uint256 private constant maxBatchSize = 7888;
     uint256 private constant reservedAmount = 7888;
 
     constructor() ERC721A("MAPE NFT", "MAPE") {}
@@ -94,7 +94,7 @@ contract MAPE is ERC721A, Ownable {
     mapping(address => bool) teamMembers;
 
     function devMint(uint256 amount) public onlyOwner {
-        require(totalSupply() + amount <= reservedAmount, "too many already minted before dev mint");
+        require(totalSupply() + amount <= reservedAmount, "Not enough Tokens.");
         _safeMint(msg.sender, amount);
     }
 
@@ -129,14 +129,14 @@ contract MAPE is ERC721A, Ownable {
             bool _OGALThr =  MerkleProof.verify(_merkleProofOGALThr, merkleRootOGALThr, leaf, indexOGALThr);
             bool _AL =  MerkleProof.verify(_merkleProofAL, merkleRootAL, leaf, indexAL);
             require(_OGALOne || _OGALTwo || _OGALThr || _AL, "Not Allowed user for PreSale");
-            if(_OGALOne && tokenAmountsPerAddy[msg.sender] > 0) {
-                require(msg.value > preSalePrice * amount, "Require Pay For more mint.");
+            if(_OGALOne && tokenAmountsPerAddy[msg.sender] > 1) {
+                require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
             }
-            if(_OGALTwo && tokenAmountsPerAddy[msg.sender] > 1) {
-                require(msg.value > preSalePrice * amount, "Require Pay For more mint.");
+            if(_OGALTwo && tokenAmountsPerAddy[msg.sender] > 2) {
+                require(msg.value > preSalePrice * amount, "RPayment required for additional NFT(s)");
             }
-            if(_OGALThr && tokenAmountsPerAddy[msg.sender] > 9) {
-                require(msg.value > preSalePrice * amount, "Require Pay For more mint.");
+            if(_OGALThr && tokenAmountsPerAddy[msg.sender] > 10) {
+                require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
             }
             if(!_OGALOne && !_OGALTwo && _AL) {
                 require(msg.value > preSalePrice * amount, "Require Pay for AL Mint");
