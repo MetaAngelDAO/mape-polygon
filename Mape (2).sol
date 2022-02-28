@@ -111,10 +111,10 @@ contract MAPE is ERC721A, Ownable {
      
     */
 
-    bytes32 public merkleRootOGALOne = 0x3f755a721590785731b83e135c98ec66732bb48abffc88a341b88ab94e37cac4;
-    bytes32 public merkleRootOGALTwo = 0x3f755a721590785731b83e135c98ec66732bb48abffc88a341b88ab94e37cac4;
-    bytes32 public merkleRootOGALThr = 0x3f755a721590785731b83e135c98ec66732bb48abffc88a341b88ab94e37cac4;
-    bytes32 public merkleRootAL = 0x3f755a721590785731b83e135c98ec66732bb48abffc88a341b88ab94e37cac4;
+    bytes32 public merkleRootOGALOne = 0x88e9ffa9c563cbcf0dd13d28548aaf9ba816bea9bedee6451808d5110b93705c;
+    bytes32 public merkleRootOGALTwo = 0x3f91798f9490bfd013bf0d6b0ab8e2f3e2185a1b27421f99cfba1c41db393c6f;
+    bytes32 public merkleRootOGALThr = 0x920a45b2d538842759372e1760c49aab15b52a48c374a8f9b3d15e94185f3644;
+    bytes32 public merkleRootAL = 0xa9a9dfd22b436ee36ba392d73cf82adca26de247ea3cd1e983406f3ad2bdad71;
 
     mapping(address => uint256) tokenAmountsPerAddy;
 
