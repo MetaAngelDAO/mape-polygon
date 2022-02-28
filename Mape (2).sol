@@ -129,13 +129,13 @@ contract MAPE is ERC721A, Ownable {
             bool _OGALThr =  MerkleProof.verify(_merkleProofOGALThr, merkleRootOGALThr, leaf, indexOGALThr);
             bool _AL =  MerkleProof.verify(_merkleProofAL, merkleRootAL, leaf, indexAL);
             require(_OGALOne || _OGALTwo || _OGALThr || _AL, "Not Allowed user for PreSale");
-            if(_OGALOne && tokenAmountsPerAddy[msg.sender] > 1) {
+            if(_OGALOne && tokenAmountsPerAddy[msg.sender] > 0) {
                 require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
             }
-            if(_OGALTwo && tokenAmountsPerAddy[msg.sender] > 2) {
+            if(_OGALTwo && tokenAmountsPerAddy[msg.sender] > 1) {
                 require(msg.value > preSalePrice * amount, "RPayment required for additional NFT(s)");
             }
-            if(_OGALThr && tokenAmountsPerAddy[msg.sender] > 10) {
+            if(_OGALThr && tokenAmountsPerAddy[msg.sender] > 9) {
                 require(msg.value > preSalePrice * amount, "Payment required for additional NFT(s)");
             }
             if(!_OGALOne && !_OGALTwo && _AL) {
